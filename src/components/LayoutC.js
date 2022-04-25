@@ -7,8 +7,8 @@ const LayoutC = ({layoutdisplay}) => {
         {layoutdisplay.map((row,i) => (
             <React.Fragment key={i}>
                 {row.map((houreslot, idx) => (
-                  <div className={`${(i === 0) ? 'bg-neutral-300' : ''}`}>
-                    <Slot houreslot={houreslot} key={idx} slotid={idx} rowidx={i}/>
+                  <div key={idx} className={`${(i === 0) ? 'bg-neutral-300' : ''}`}>
+                    <Slot houreslot={houreslot}  slotid={idx} rowidx={i}/>
                   </div>
                 ))}
             </React.Fragment>
