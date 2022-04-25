@@ -15,7 +15,7 @@ function App() {
     console.log(sidebarflag);
 
   }
-  console.table(lay())
+  
   const [layout, setLayout] = useState(lay())
   return (
       <React.Fragment>
