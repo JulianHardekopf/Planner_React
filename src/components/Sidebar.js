@@ -1,15 +1,15 @@
 import React from 'react'
 import CreateEventButton from './CreateEventButton'
+import control from '../assets/control.png'
+import logoplanner from '../assets/logoplanner.png'
 
-const Sidebar = () => {
+const Sidebar = ({isopen, setflag}) => {
   return (
-    <aside className='pr-7 p-5 w-50 bg-slate-900'>
-      <div className='mt-5'>
-      <CreateEventButton />
+    <aside className={`${isopen ? 'w-50 ' : 'w-20' } pr-7  bg-slate-900`}>
+      <img src={control} onClick={() => setflag(!isopen)} className={`${isopen ? 'left-40 ' : 'left-12' } absolute cursor-pointer top-3`}/>
+      <div className=''>
+      <CreateEventButton isopen={isopen}/>
       </div>
-      
-
-
     </aside>
   )
 }

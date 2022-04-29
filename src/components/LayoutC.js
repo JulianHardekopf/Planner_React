@@ -3,7 +3,7 @@ import Slot from './Slot'
 
 const LayoutC = ({layoutdisplay}) => {
   return (
-    <div className='grid grid-cols-8 grid-rows-14'>
+    <div className='flex w-full grid grid-cols-8 grid-rows-14'>
         {layoutdisplay.map((row,i) => (
             <React.Fragment key={i}>
                 {row.map((houreslot, idx) => (

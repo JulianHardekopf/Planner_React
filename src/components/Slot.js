@@ -68,7 +68,7 @@ const Slot = ({houreslot, slotid, rowidx}) => {
   return ''
 }
     return (
-    <div className={`${(rowidx > 0) ? 'border border-gray-300 h-20' : 'h-5'}`}>
+    <div className={`${(rowidx > 0) ? 'border border-gray-300 h-20 ' : 'h-5'}`}>
         {(rowidx === 1 && slotid ===1) && <p className='text-sm font-bold '>hey wir haben es geschafft</p> }
         {rowidx === 0 && <p className='text-sm font-bold text-center'>{day(slotid)}</p> }
        {slotid === 0 && <p className='text-sm pt-5 my-1 text-center '>{timeLabel(rowidx)}</p> }

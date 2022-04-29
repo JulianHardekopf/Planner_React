@@ -9,6 +9,7 @@ function App() {
     return Array(14).fill([]).map(row => new Array(8).fill(null))
 
   }
+  const [siderbarhandler, setSidbarhandler] = useState(true)
   let sidebarflag = true
   const showsidebar = () => {
     sidebarflag = !sidebarflag
@@ -19,13 +20,12 @@ function App() {
   const [layout, setLayout] = useState(lay())
   return (
       <React.Fragment>
-        <div className='flex flex-col'>
-          <CalenderHeader onAdd={showsidebar} />
-          <div className={`${sidebarflag === true ? 'flex flex-1' : ''}`}>
-            {sidebarflag === true && <Sidebar />}
+        <div className='flex flex-row'>
+          <Sidebar isopen={siderbarhandler} setflag={setSidbarhandler} />
+          <div className='flex flex-col flex-1'>
+            <CalenderHeader />
             <LayoutC layoutdisplay={layout} />
           </div>
-
         </div>
       </React.Fragment>
   );
