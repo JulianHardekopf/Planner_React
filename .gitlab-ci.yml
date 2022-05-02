@@ -14,4 +14,4 @@ build project:
   image: node:18
   script:
     - npm install
-    - npm build
+    - npm run build
