@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Sidebar from './components/Sidebar';
 import CalenderHeader from './components/CalenderHeader';
@@ -10,14 +9,8 @@ function App() {
 
   }
   const [siderbarhandler, setSidbarhandler] = useState(true)
-  let sidebarflag = true
-  const showsidebar = () => {
-    sidebarflag = !sidebarflag
-    console.log(sidebarflag);
-
-  }
   
-  const [layout, setLayout] = useState(lay())
+  const [layout] = useState(lay())
   return (
       <React.Fragment>
         <div className='flex flex-row'>
