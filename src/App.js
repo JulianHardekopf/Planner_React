@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Sidebar from './components/Sidebar';
 import CalenderHeader from './components/CalenderHeader';
@@ -19,7 +18,7 @@ function App() {
 
   }
   
-  const [layout, setLayout] = useState(lay())
+  const [layout] = useState(lay())
   return (
       <React.Fragment>
         {eventmodal && <EventModal openform={eventmodal} setopenform = {setEventmodal} />}

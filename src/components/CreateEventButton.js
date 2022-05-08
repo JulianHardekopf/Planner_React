@@ -1,5 +1,4 @@
 import React from 'react'
-import plusimg from '../assets/plusimg.png'
 import {BsPlusCircle} from 'react-icons/bs';
 import planerlogo from '../assets/planerlogo.png'
 
