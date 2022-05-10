@@ -25,7 +25,7 @@ const EventModal = ({openform,setopenform,layoutdisplay,layoutdisplay2,setlayout
     const [location, setLocation] = useState('')
     const [selectedDay, setSelectedDay] = useState('')
     const [selectedSlot, setSelectedSlot] = useState('')
-    const [selectedCategory, setSelectedCategory] = useState('')
+    const [selectedCategory, setSelectedCategory] = useState('bg-indigo-500')
     const [slots, setSlots] = useState("");
 
     
@@ -65,8 +65,7 @@ const EventModal = ({openform,setopenform,layoutdisplay,layoutdisplay2,setlayout
 
 
     const submit = (title,location,selectedDay,selectedSlot,selectedCategory,event) => {
-       let testslotid
-       let testrowid
+      
         setlayoutdisplay2(layoutdisplay2.map((row,rowIdx) => {
              return row.map((slot,slotIdx) => {
                if (parseInt(selectedDay) === slotIdx && parseInt(selectedSlot) === rowIdx) {
