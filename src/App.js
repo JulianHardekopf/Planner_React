@@ -18,23 +18,18 @@ function App() {
   }
   const [siderbarhandler, setSidbarhandler] = useState(true)
   const [eventmodal, setEventmodal] = useState(false)
-  let sidebarflag = true
-  const showsidebar = () => {
-    sidebarflag = !sidebarflag
-    console.log(sidebarflag);
 
-  }
   
-  const [layout] = useState(lay())
+  //const [layout] = useState(lay())
   const [layouttest,setlayouttest] = useState(lay())
   return (
       <React.Fragment>
-        {eventmodal && <EventModal layoutdisplay={layout} layoutdisplay2={layouttest} setlayoutdisplay2={setlayouttest}  openform={eventmodal} setopenform = {setEventmodal} db={db} />}
+        {eventmodal && <EventModal  layoutdisplay2={layouttest} setlayoutdisplay2={setlayouttest}  openform={eventmodal} setopenform = {setEventmodal} db={db} />}
         <div className='flex flex-row'>
           <Sidebar openform={eventmodal} setopenform = {setEventmodal} isopen={siderbarhandler} setflag={setSidbarhandler} />
           <div className='flex flex-col flex-1'>
             <CalenderHeader />
-            <LayoutC layoutdisplay={layout} db={db} />
+            <LayoutC layoutdisplay={layouttest} db={db} />
           </div>
         </div>
       </React.Fragment>

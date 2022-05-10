@@ -1,8 +1,6 @@
 import React from 'react'
 import {AiOutlineCloseCircle} from 'react-icons/ai'
-import  { useState, useEffect } from 'react'
-import Dexie from "dexie"
-import { confirmAlert } from 'react-confirm-alert'; // Import
+import  { useState } from 'react'
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 
@@ -71,14 +69,10 @@ const EventModal = ({openform,setopenform,layoutdisplay,layoutdisplay2,setlayout
                if (parseInt(selectedDay) === slotIdx && parseInt(selectedSlot) === rowIdx) {
                     alert('click to save')
                     saveSlot(title,location,selectedCategory,selectedDay,selectedSlot,event)
-                    return console.log('heyyyyyy')
+                    return slot
                  
                     
-               } else {
-                   if (slotIdx === 1 && rowIdx === 3) {
-                       console.log(selectedDay)
-                   }
-               }
+               } 
            })
        }))
         

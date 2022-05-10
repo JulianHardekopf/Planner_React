@@ -18,7 +18,8 @@ const Slot = ({houreslot, slotid, rowidx, db}) => {
         }
         getSlot();
   
-    }, [])
+    }, "")
+
   const timeLabel = (id) => {
       if (id === 1) {
           return '08:00 - 09:00'
@@ -86,10 +87,7 @@ const Slot = ({houreslot, slotid, rowidx, db}) => {
   return ''
 }
 
-if (id === '24') {
-    console.log('24 wurde gefunden')
-    
-}
+
 let postData
 if(slots.length > 0) {
       
