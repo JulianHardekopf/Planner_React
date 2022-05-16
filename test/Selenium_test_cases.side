@@ -7,6 +7,20 @@
     "id": "1e359160-ec01-4c85-ad86-eadfa73499ee",
     "name": "add_appointment",
     "commands": [{
+      "id": "198d4991-3cc6-4510-bd78-e84ba763c7d2",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\".split(\"\").filter(function(e, i, a) { return Math.random() > 0.8 }).join(\"\")",
+      "targets": [],
+      "value": "value2"
+    }, {
+      "id": "b9353957-c8cc-4326-a2bb-62e565e0a75b",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\".split(\"\").filter(function(e, i, a) { return Math.random() > 0.8 }).join(\"\")",
+      "targets": [],
+      "value": "value1"
+    }, {
       "id": "1ffa5a6c-a497-4237-b2f8-a0aa26a64b7f",
       "comment": "",
       "command": "open",
@@ -80,7 +94,7 @@
         ["xpath=//div[@id='root']/div/form/div/div/input", "xpath:idRelative"],
         ["xpath=//input", "xpath:position"]
       ],
-      "value": "abc"
+      "value": "${value1}"
     }, {
       "id": "9e2e107a-607c-4a2c-8b4b-382028548f3a",
       "comment": "",
@@ -104,7 +118,7 @@
         ["xpath=//div[@id='root']/div/form/div/div/input[2]", "xpath:idRelative"],
         ["xpath=//input[2]", "xpath:position"]
       ],
-      "value": "defg"
+      "value": "${value2}"
     }, {
       "id": "62b5f8ea-5243-43e0-a932-b1f53b8f9829",
       "comment": "",
@@ -197,6 +211,13 @@
       ],
       "value": ""
     }, {
+      "id": "155d4df4-7c4a-466c-b592-417422645ff6",
+      "comment": "",
+      "command": "executeScript",
+      "target": "location.reload()",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "7f397359-a856-44f0-a461-0c803035efbc",
       "comment": "",
       "command": "assertText",
@@ -207,7 +228,7 @@
         ["xpath=//h1", "xpath:position"],
         ["xpath=//h1[contains(.,'abc')]", "xpath:innerText"]
       ],
-      "value": "abc"
+      "value": "${value1}"
     }, {
       "id": "2c3508d9-3ba8-4b83-8f6f-fe2ebbe5dd59",
       "comment": "",
@@ -219,7 +240,7 @@
         ["xpath=//div[10]/div/div/div/p", "xpath:position"],
         ["xpath=//p[contains(.,'defg')]", "xpath:innerText"]
       ],
-      "value": "defg"
+      "value": "${value2}"
     }]
   }],
   "suites": [{
