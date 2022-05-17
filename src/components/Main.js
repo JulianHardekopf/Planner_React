@@ -7,7 +7,8 @@ const Main = ({title, location, selectedCategory, selectedDay,selectedSlot}) => 
     const db = new Dexie("ReactDexie");
     //create the database store
     db.version(1).stores({
-        slots: "title, location, Category, dayid, slotid"
+        slots: "title, location, Category, dayid, slotid",
+        user: "name"
     })
     db.open().catch((err) => {
         console.log(err.stack || err)

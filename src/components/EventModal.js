@@ -1,6 +1,7 @@
 import React from 'react'
 import {AiOutlineCloseCircle} from 'react-icons/ai'
 import  { useState } from 'react'
+import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 
@@ -67,9 +68,10 @@ const EventModal = ({openform,setopenform,layoutdisplay,layoutdisplay2,setlayout
         setlayoutdisplay2(layoutdisplay2.map((row,rowIdx) => {
              return row.map((slot,slotIdx) => {
                if (parseInt(selectedDay) === slotIdx && parseInt(selectedSlot) === rowIdx) {
-                    alert('click to save')
-                    saveSlot(title,location,selectedCategory,selectedDay,selectedSlot,event)
-                    return slot
+                   alert("Success")
+                   saveSlot(title,location,selectedCategory,selectedDay,selectedSlot,event)
+                   window.location.reload()
+                   return slot
                  
                     
                } 
