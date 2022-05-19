@@ -68,9 +68,8 @@ const EventModal = ({openform,setopenform,layoutdisplay,layoutdisplay2,setlayout
         setlayoutdisplay2(layoutdisplay2.map((row,rowIdx) => {
              return row.map((slot,slotIdx) => {
                if (parseInt(selectedDay) === slotIdx && parseInt(selectedSlot) === rowIdx) {
-                   alert("Success")
+                   alert("click here")
                    saveSlot(title,location,selectedCategory,selectedDay,selectedSlot,event)
-                   window.location.reload()
                    return slot
                  
                     
