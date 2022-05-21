@@ -15,10 +15,7 @@ function App() {
   //create the database store
   db.version(1).stores({
       slots: "id, title, location, Category, dayid, slotid",
-<<<<<<< HEAD
-    
-=======
->>>>>>> e51f7b0dd90c682d2b8ac55b6108a233f9c6895c
+
   })
 
   const lay = () => {
@@ -31,11 +28,7 @@ function App() {
   //const [layout] = useState(lay())
   const [layouttest,setlayouttest] = useState(lay())
 
-<<<<<<< HEAD
-    
 
-=======
->>>>>>> e51f7b0dd90c682d2b8ac55b6108a233f9c6895c
   return (
       <React.Fragment>
         {eventmodal && <EventModal  layoutdisplay2={layouttest} setlayoutdisplay2={setlayouttest}  openform={eventmodal} setopenform = {setEventmodal} db={db} />}
