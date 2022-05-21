@@ -68,9 +68,14 @@ const EventModal = ({openform,setopenform,layoutdisplay,layoutdisplay2,setlayout
         setlayoutdisplay2(layoutdisplay2.map((row,rowIdx) => {
              return row.map((slot,slotIdx) => {
                if (parseInt(selectedDay) === slotIdx && parseInt(selectedSlot) === rowIdx) {
+<<<<<<< HEAD
                    //alert("Success")
                    saveSlot(title,location,selectedCategory,selectedDay,selectedSlot,event)
                    window.location = { reload: jest.fn() }                   
+=======
+                   alert("click here")
+                   saveSlot(title,location,selectedCategory,selectedDay,selectedSlot,event)
+>>>>>>> e51f7b0dd90c682d2b8ac55b6108a233f9c6895c
                    return slot
                  
                     
