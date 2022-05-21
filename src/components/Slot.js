@@ -10,15 +10,20 @@ const Slot = ({houreslot, slotid, rowidx, db}) => {
     })
     // get all post at all time 
     useEffect(() => {
-
+        const jsdomAlert = window.alert;  // remember the jsdom alert
+        window.alert = () => {};  // provide an empty implementation for window.alert
         //get all posts from the database
-        const getSlot = async() => {
+        const getSlot = async() => { // delete the try catch block if it doesnt work
+            try {
             let slot = await db.slots.where("id").equalsIgnoreCase(id).toArray();
             setSlots(slot);
+            } catch(error) {
+                alert(error);
+            }
         }
         getSlot();
   
-    }, "")
+    }, [])
 
   const timeLabel = (id) => {
       if (id === 1) {
@@ -96,7 +101,7 @@ if(slots.length > 0) {
                     slots.map(slot => {
                         
                             return <div className={`${(slot.selectedCategory !== 'bg-amber-200' && slot.selectedCategory !== 'bg-cyan-200' ) ? 'text-white ' : '' } ${slot.selectedCategory} italic h-full rounded-md`}  key={slot.id}>
-                                    <h1 className='text-center text-xl font-semibold '>{slot.title}</h1>
+                                    <h1 data-testid={`${slot.id}`} className='text-center text-xl font-semibold '>{slot.title}</h1>
                                     <p className='pl-1 '>{slot.location}</p> 
                                     </div>  
                         

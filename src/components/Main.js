@@ -73,7 +73,7 @@ const Main = ({title, location, selectedCategory, selectedDay,selectedSlot}) => 
 
     /*let postData;
   
-  
+  m
     if(posts.length > 0) {
       
         postData = <div className="postsContainer">

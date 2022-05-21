@@ -68,9 +68,9 @@ const EventModal = ({openform,setopenform,layoutdisplay,layoutdisplay2,setlayout
         setlayoutdisplay2(layoutdisplay2.map((row,rowIdx) => {
              return row.map((slot,slotIdx) => {
                if (parseInt(selectedDay) === slotIdx && parseInt(selectedSlot) === rowIdx) {
-                   alert("Success")
+                   //alert("Success")
                    saveSlot(title,location,selectedCategory,selectedDay,selectedSlot,event)
-                   window.location.reload()
+                   window.location = { reload: jest.fn() }                   
                    return slot
                  
                     
@@ -84,23 +84,23 @@ const EventModal = ({openform,setopenform,layoutdisplay,layoutdisplay2,setlayout
 
   return (
     <div className='h-screen w-full fixed left-10 top-4 flex justify-start items-center' >
-        <form className='bg-white rounded-lg shadow-2xl w-1/4'>
+        <form data-testid="taskForm" className='bg-white rounded-lg shadow-2xl w-1/4'>
             <header className='bg-gray-100 px-4 py-2 flex justify-between items-center'>
                 <span className='material-icons-outlined text-gray-400'>
                     Add Task
                 </span>
                 <span className='material-icons-outlined text-gray-400'>
-                    <AiOutlineCloseCircle onClick={() => openform ? setopenform(!openform) : setopenform} />
+                    <AiOutlineCloseCircle data-testid="taskclose" onClick={() => openform ? setopenform(!openform) : setopenform} />
                 </span>
             </header>
             <div className='p-3'>
                 <div className='grid grid-cols-3 items-end gap-y-8 '>
                     <div className= 'text-gray-600 text-xl font-semibold pb-2 w-full'>name</div>
-                    <input className='col-span-2 pt-3 border-0 text-gray-600 text-xl font-semibold pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-indigo-900' type="text" name='title' placeholder='Add title' value={title}  onChange={(e) => setTitle(e.target.value)} />
+                    <input data-testid="taskName" className='col-span-2 pt-3 border-0 text-gray-600 text-xl font-semibold pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-indigo-900' type="text" name='title' placeholder='Add title' value={title}  onChange={(e) => setTitle(e.target.value)} />
                     <div className= 'text-gray-600 text-xl font-semibold pb-2 w-full'>Location</div>
                     <input className='col-span-2 pt-3 border-0 text-gray-600 text-xl font-semibold pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-indigo-900' type="text" name='title'  placeholder='Add location' value={location}  onChange={(e) => setLocation(e.target.value)} />
                     <div className='text-gray-600 text-xl font-semibold pb-2 w-full col-span-3'>
-                        <select onChange={(e) => setSelectedDay(e.target.value)}  name='day' id="day" className='text-gray-600 text-xl font-semibold pb-2 w-full'>
+                        <select data-testid="taskSelectDay" onChange={(e) => setSelectedDay(e.target.value)}  name='day' id="day" className='text-gray-600 text-xl font-semibold pb-2 w-full'>
                             <option  value=''>please select Day</option>
                             <option  value='1'>Monday</option>
                             <option value='2'>Tuesday</option>
@@ -114,7 +114,7 @@ const EventModal = ({openform,setopenform,layoutdisplay,layoutdisplay2,setlayout
                     </div>
            
                     <div className='text-gray-600 text-xl font-semibold pb-2 w-full col-span-3 mb-5'>
-                        <select onChange={(e) => setSelectedSlot(e.target.value)}  name='slots' id="slots" className='text-gray-600 text-xl font-semibold pb-2 w-full'>
+                        <select data-testid="taskSelectSlot" onChange={(e) => setSelectedSlot(e.target.value)}  name='slots' id="slots" className='text-gray-600 text-xl font-semibold pb-2 w-full'>
                             <option  value=''>please select a Slot</option>
                             <option  value='1'>08:00 - 09:00</option>
                             <option value='2'>09:00 - 10:00</option>
@@ -143,7 +143,7 @@ const EventModal = ({openform,setopenform,layoutdisplay,layoutdisplay2,setlayout
                         </select>
                     </div>
                     <div></div>
-                    <button id='submit' onClick={(e) => submit(title,location,selectedDay,selectedSlot,selectedCategory, e)} className='rounded-full mb-4 h-12 w-full outline-4 content-center bg-slate-900 text-slate-50	  hover:bg-gray-300 transition-all duration-500 hover:text-black'>Submit</button>
+                    <button data-testid="taskSubmitButton" id='submit' onClick={(e) => submit(title,location,selectedDay,selectedSlot,selectedCategory, e)} className='rounded-full mb-4 h-12 w-full outline-4 content-center bg-slate-900 text-slate-50	  hover:bg-gray-300 transition-all duration-500 hover:text-black'>Submit</button>
 
 
                 </div>
