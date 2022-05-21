@@ -6,9 +6,8 @@ import LayoutC from './components/LayoutC';
 import React, { useState } from 'react'
 import EventModal from './components/EventModal';
 import Dexie from "dexie"
-import {confirmAlert} from "react-confirm-alert";
-import fakeIndexedDB from 'fake-indexeddb/build/fakeIndexedDB';
-import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+
+
 function App() {
   //set the database 
   
@@ -16,7 +15,7 @@ function App() {
   //create the database store
   db.version(1).stores({
       slots: "id, title, location, Category, dayid, slotid",
-      user: "id, name"
+    
   })
 
   const lay = () => {
@@ -29,37 +28,7 @@ function App() {
   //const [layout] = useState(lay())
   const [layouttest,setlayouttest] = useState(lay())
 
-    // //User provides name
-    // const [name, setName] = useState("");
-    // if (db.user.length === 0) {
-    //     confirmAlert({
-    //         customUI: ({onClose}) => {
-    //             return (
-    //                 <div className='NameProvider'>
-    //                     <form>
-    //                         <label>Enter your name:
-    //                             <input
-    //                                 value={name}
-    //                                 type="text"
-    //                                 onChange={(e) => setName(e.target.value)}
-    //                             />
-    //                         </label>
-    //                     </form>
-    //                     <button onClick={(e) => {
-    //                         handleSubmit(e)
-    //                         onClose();
-    //                     }}>Confirm
-    //                     </button>
-    //                 </div>
-    //             );
-    //         }
-    //     });
-    // }
-    // const handleSubmit = (event) => {
-    //     let user = {id: 1, name: name}
-    //     event.preventDefault();
-    //     db.user.add(user)
-    // }
+    
 
   return (
       <React.Fragment>
