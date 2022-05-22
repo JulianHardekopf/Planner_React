@@ -35,9 +35,12 @@ const EventModal = ({openform,setopenform,layoutdisplay,layoutdisplay2,setlayout
 
     //submit 
     const saveSlot = (title,location,selectedCategory,selectedDay,selectedSlot,event) => {
+        let slot;
+        let slotWithoutKey;
+        let checkid = selectedSlot + selectedDay
         event.preventDefault()
         if(title !== "" && selectedDay !== "" && selectedSlot !== "" && selectedCategory !== ""){
-            let slot = {
+            slot = {
                 id:  selectedSlot + selectedDay,
                 title: title,
                 location: location,
@@ -45,14 +48,35 @@ const EventModal = ({openform,setopenform,layoutdisplay,layoutdisplay2,setlayout
                 selectedDay: selectedDay,
                 selectedSlot: selectedSlot  
             }
-           
-    
-            db.slots.add(slot).then(async() => {
-                //retrieve all posts inside the database
-                let allSlots = await db.slots.toArray();
-                //set the posts
-                setSlots(allSlots);
-            });
+            slotWithoutKey = {
+                title: title,
+                location: location,
+                selectedCategory: selectedCategory,
+                selectedDay: selectedDay,
+                selectedSlot: selectedSlot 
+            }
+
+            db.slots.update(checkid, {}).then(function (updated) {
+                if (updated)
+                    db.slots.update(checkid, slotWithoutKey).then(async() => {
+                        //retrieve all posts inside the database
+                        let allSlots = await db.slots.toArray();
+                        //set the posts
+                        setSlots(allSlots);
+                        
+                    });
+                    
+                else
+                db.slots.add(slot).then(async() => {
+                    //retrieve all posts inside the database
+                    let allSlots = await db.slots.toArray();
+                    //set the posts
+                    setSlots(allSlots);
+                    
+                });
+                
+              });
+ 
             
         }
         
@@ -69,9 +93,9 @@ const EventModal = ({openform,setopenform,layoutdisplay,layoutdisplay2,setlayout
              return row.map((slot,slotIdx) => {
                if (parseInt(selectedDay) === slotIdx && parseInt(selectedSlot) === rowIdx) {
 
-                   //alert("Success")
+                   alert("Success")
                    saveSlot(title,location,selectedCategory,selectedDay,selectedSlot,event)
-                   window.location = { reload: jest.fn() }                   
+                   return slot;                  
 
                  
                     

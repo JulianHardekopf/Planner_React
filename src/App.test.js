@@ -60,7 +60,8 @@ test('selectDay', async () => {
 
   expect(getSelectedDay).toHaveValue("1");
 });
-test('add a task', async () => {
+/* 
+test('add a task', () =>  {
   render(<App />)
   
   const taskButton = screen.getByRole("button", { id: /task/i});
@@ -84,6 +85,7 @@ test('add a task', async () => {
   screen.debug();
   expect(getSelectedDay).toHaveValue("1");
 });
+*/ 
 
 
 // describe("App", () => {
