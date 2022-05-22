@@ -1,13 +1,12 @@
 import React from 'react'
 import {AiOutlineCloseCircle} from 'react-icons/ai'
-import  { useState } from 'react'
+import  { useState, useEffect } from 'react'
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
-
-
-
-
-
+import fakeIndexedDB from 'fake-indexeddb/build/fakeIndexedDB';
+import { wait } from '@testing-library/user-event/dist/utils';
+import { Notifications } from './Notifications';
+import ConfirmDialog from './ConfirmDialog';
 
 
 
@@ -18,17 +17,39 @@ const EventModal = ({openform,setopenform,layoutdisplay,layoutdisplay2,setlayout
     })
     
     //set the state and property
-  
-    
+    const [notify, setNotify] = useState({isOpen: false, message: "", type:""})
+    const [SaveAppointment, setSaveAppointment] = useState(false)
+    let saveFlag = false
     const [title, setTitle] = useState('')
     const [location, setLocation] = useState('')
     const [selectedDay, setSelectedDay] = useState('')
     const [selectedSlot, setSelectedSlot] = useState('')
     const [selectedCategory, setSelectedCategory] = useState('bg-indigo-500')
     const [slots, setSlots] = useState("");
+    const [confirmDialog, setConfirmDialog] = useState({ isOpen: false, title: '', subTitle: '' })
 
     
-  
+    const SuccessMessage = () =>  {
+        
+        confirmAlert({
+            title: 'Confirm to submit',
+            message: 'Task was successful.',
+            buttons: [
+                {
+                    label: 'Confirm',
+                    onClick: () => saveFlag = true
+                    
+                }, 
+                {
+                    label: 'No',
+                    //onClick: () => setSaveAppointment(false)
+                    onClick: () => saveFlag = false
+                    
+    
+                }
+            ]
+        });
+    }
    
     
 
@@ -82,19 +103,53 @@ const EventModal = ({openform,setopenform,layoutdisplay,layoutdisplay2,setlayout
         
         
     }
+   
+    const onSave = (e) => {
+        
+            setConfirmDialog({
+                ...confirmDialog, 
+                isOpen:false
+            })
+            saveFlag = true
+            setNotify({
+                isOpen : true,
+                message: "Submitted Sucessfully",
+                type: "success"
 
+            })
 
+        
+            submit(title,location,selectedDay,selectedSlot,selectedCategory, e)
+                 
     
+    }
 
+    const test = (e) => {
+        e.preventDefault()
+        setConfirmDialog({
+            isOpen: true,
+            title: 'Are you sure to delete this record?',
+            subTitle: "You can't undo this operation",
+            onConfirm: () => { onSave(e)}
+        })
+       
+   
+   
+        
+
+    }
 
     const submit = (title,location,selectedDay,selectedSlot,selectedCategory,event) => {
       
         setlayoutdisplay2(layoutdisplay2.map((row,rowIdx) => {
              return row.map((slot,slotIdx) => {
-               if (parseInt(selectedDay) === slotIdx && parseInt(selectedSlot) === rowIdx) {
+                    if (parseInt(selectedDay) === slotIdx && parseInt(selectedSlot) === rowIdx) {
+                        
 
-                   alert("Success")
-                   saveSlot(title,location,selectedCategory,selectedDay,selectedSlot,event)
+                   if(saveFlag) {
+                    saveSlot(title,location,selectedCategory,selectedDay,selectedSlot,event)
+                   }
+      
                    return slot;                  
 
                  
@@ -168,7 +223,7 @@ const EventModal = ({openform,setopenform,layoutdisplay,layoutdisplay2,setlayout
                         </select>
                     </div>
                     <div></div>
-                    <button data-testid="taskSubmitButton" id='submit' onClick={(e) => submit(title,location,selectedDay,selectedSlot,selectedCategory, e)} className='rounded-full mb-4 h-12 w-full outline-4 content-center bg-slate-900 text-slate-50	  hover:bg-gray-300 transition-all duration-500 hover:text-black'>Submit</button>
+                    <button data-testid="taskSubmitButton" id='submit' onClick={(e) => test(e)} className='rounded-full mb-4 h-12 w-full outline-4 content-center bg-slate-900 text-slate-50	  hover:bg-gray-300 transition-all duration-500 hover:text-black'>Submit</button>
 
 
                 </div>
@@ -177,6 +232,11 @@ const EventModal = ({openform,setopenform,layoutdisplay,layoutdisplay2,setlayout
 
 
         </form>
+        <Notifications notify={notify} setNotify = {setNotify} />
+        <ConfirmDialog 
+        confirmDialog={confirmDialog}
+        setConfirmDialog = {setConfirmDialog}
+        />
     </div>
   )
 }
