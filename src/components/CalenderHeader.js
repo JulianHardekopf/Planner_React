@@ -1,12 +1,12 @@
 import React from 'react'
+import { useLiveQuery } from "dexie-react-hooks";
 
+const CalenderHeader = ({db}) => {
+    const users = useLiveQuery(
+        () => db.user.toArray());
 
-const CalenderHeader = () => {
-  return (
-    <header className='h-20 px-4 py-2 flex items-center bg-slate-900'>
-     
-    </header>
-  )
+        return <header className='h-20 px-4 py-2 flex items-center bg-slate-900'>
+            <p style={{color: "white"}}> User: {users?.map(user => user.name)}</p>
+        </header>
 }
-
 export default CalenderHeader

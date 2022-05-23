@@ -2,6 +2,7 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 import {useState} from "react";
 import {confirmAlert} from "react-confirm-alert"; // Import css
 import '../App.css'
+import SuccessMessage from "./SuccessMessage";
 
 const UserProvidesName = (db) => {
     const [name, setName] = useState("");
@@ -33,7 +34,7 @@ const UserProvidesName = (db) => {
                             </form>
                             <button className="submitButton" onClick={(e) => {
                                 handleSubmit(e)
-                                onClose();
+                                onClose()
                             }}>Confirm
                             </button>
                         </div>
@@ -44,7 +45,7 @@ const UserProvidesName = (db) => {
         const handleSubmit = (event) => {
             event.preventDefault();
             db.user.update(1, {name: name})
-            alert("Success")
+            SuccessMessage(name)
         }
     }
     return provider();

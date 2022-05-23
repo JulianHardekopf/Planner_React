@@ -11,6 +11,7 @@
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^13.5.0",
     "dexie": "^3.2.2",
+    "dexie-react-hooks": "^1.1.1",
     "idb": "^7.0.1",
     "indexeddbshim": "^10.0.0",
     "react": "^18.0.0",

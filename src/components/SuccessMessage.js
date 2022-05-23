@@ -2,10 +2,10 @@ import {confirmAlert} from "react-confirm-alert";
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 
-const SuccessMessage = () => {
+const SuccessMessage = (text) => {
     confirmAlert({
         title: 'Confirm to submit',
-        message: 'Task was successful.',
+        message: `Changed name to ${text}.`,
         buttons: [
             {
                 label: 'Confirm',

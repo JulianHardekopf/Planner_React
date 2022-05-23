@@ -37,7 +37,7 @@ function App() {
         <div data-testid="Apptest" className='flex flex-row'>
           <Sidebar openform={eventmodal} setopenform = {setEventmodal} isopen={siderbarhandler} setflag={setSidbarhandler} />
           <div className='flex flex-col flex-1'>
-            <CalenderHeader />
+            <CalenderHeader db={db} />
             <LayoutC layoutdisplay={layouttest} db={db} />
           </div>
         </div>
@@ -45,5 +45,6 @@ function App() {
   );
 
 }
+
 
 export default App;
