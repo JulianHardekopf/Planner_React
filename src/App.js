@@ -6,6 +6,7 @@ import LayoutC from './components/LayoutC';
 import React, { useState } from 'react'
 import EventModal from './components/EventModal';
 import Dexie from "dexie"
+import UserProvidesName from "./components/UserProvidesName";
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
   //create the database store
   db.version(1).stores({
       slots: "id, title, location, Category, dayid, slotid",
-
+      user: "id, name"
   })
 
   const lay = () => {
@@ -28,6 +29,7 @@ function App() {
   //const [layout] = useState(lay())
   const [layouttest,setlayouttest] = useState(lay())
 
+  UserProvidesName(db).then()
 
   return (
       <React.Fragment>
