@@ -7,6 +7,13 @@
     "id": "1e359160-ec01-4c85-ad86-eadfa73499ee",
     "name": "add_appointment",
     "commands": [{
+      "id": "1ffa5a6c-a497-4237-b2f8-a0aa26a64b7f",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "198d4991-3cc6-4510-bd78-e84ba763c7d2",
       "comment": "",
       "command": "executeScript",
@@ -21,21 +28,7 @@
       "targets": [],
       "value": "value1"
     }, {
-      "id": "1ffa5a6c-a497-4237-b2f8-a0aa26a64b7f",
-      "comment": "",
-      "command": "open",
-      "target": "/",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "da40400f-7a15-448d-8ea2-268bceb49728",
-      "comment": "",
-      "command": "setWindowSize",
-      "target": "1295x824",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "327e7d4d-eab9-40a4-9e5e-cdce0c9ccc03",
+      "id": "c91d4b8c-0b5b-4a70-bf24-ce6c6ef44073",
       "comment": "",
       "command": "click",
       "target": "css=.pl-3",
@@ -47,7 +40,7 @@
       ],
       "value": ""
     }, {
-      "id": "a91c56c7-e300-45f1-8bf9-f401c9a00396",
+      "id": "6ff6625b-44d3-4826-85d3-b4c75db74080",
       "comment": "",
       "command": "mouseOver",
       "target": "css=.pl-3",
@@ -59,7 +52,7 @@
       ],
       "value": ""
     }, {
-      "id": "1081e27e-7809-4d9a-ad09-49ae9f1483d5",
+      "id": "d86209b9-777f-489d-b650-23f8b1489a8e",
       "comment": "",
       "command": "mouseOut",
       "target": "css=.pl-3",
@@ -70,7 +63,7 @@
       ],
       "value": ""
     }, {
-      "id": "06f4894b-6420-4399-b735-86c3dd6be40c",
+      "id": "4bdfd06e-0359-4a4d-9ac1-fa5a07db7eb6",
       "comment": "",
       "command": "click",
       "target": "name=title",
@@ -83,7 +76,7 @@
       ],
       "value": ""
     }, {
-      "id": "691236f4-7d4a-461b-9f32-9f6532171d80",
+      "id": "001d08aa-3329-4eb1-9ff9-91f97f99d94a",
       "comment": "",
       "command": "type",
       "target": "name=title",
@@ -96,7 +89,7 @@
       ],
       "value": "${value1}"
     }, {
-      "id": "9e2e107a-607c-4a2c-8b4b-382028548f3a",
+      "id": "b25e83ee-b7f5-444a-a403-350d4c655e87",
       "comment": "",
       "command": "click",
       "target": "css=.col-span-2:nth-child(4)",
@@ -108,7 +101,7 @@
       ],
       "value": ""
     }, {
-      "id": "e896bc13-63c8-49d6-ab4a-58c0a73b2177",
+      "id": "3163d17c-e528-4f23-926a-bf3f64acdba6",
       "comment": "",
       "command": "type",
       "target": "css=.col-span-2:nth-child(4)",
@@ -120,7 +113,7 @@
       ],
       "value": "${value2}"
     }, {
-      "id": "62b5f8ea-5243-43e0-a932-b1f53b8f9829",
+      "id": "6082ab4f-9a09-4ed7-9fc9-e7ffe5483421",
       "comment": "",
       "command": "click",
       "target": "id=day",
@@ -134,14 +127,14 @@
       ],
       "value": ""
     }, {
-      "id": "339e93b0-3ce6-45bc-9d34-0357d2781026",
+      "id": "178457e0-f23b-4d49-9000-dfbc24655dfb",
       "comment": "",
       "command": "select",
       "target": "id=day",
       "targets": [],
-      "value": "label=Monday"
+      "value": "label=Tuesday"
     }, {
-      "id": "431aebcb-9a30-46e3-a52f-4cdda36b3633",
+      "id": "27f7403e-88cc-4a1b-b6d3-61f4d6ad5792",
       "comment": "",
       "command": "click",
       "target": "id=slots",
@@ -155,14 +148,14 @@
       ],
       "value": ""
     }, {
-      "id": "c7ea0056-009d-429b-8e9d-8fbda9eeb88d",
+      "id": "dd81e3d1-d6d5-406c-aaeb-6b2422160c66",
       "comment": "",
       "command": "select",
       "target": "id=slots",
       "targets": [],
       "value": "label=08:00 - 09:00"
     }, {
-      "id": "f8a6b917-4b13-473b-885a-33c079b13ff5",
+      "id": "27a72388-f1e7-4c1b-bdec-eaf62aac2b98",
       "comment": "",
       "command": "click",
       "target": "css=.col-span-2 > #day",
@@ -174,14 +167,14 @@
       ],
       "value": ""
     }, {
-      "id": "6f87adfd-f4c8-4cc3-8f96-a737051d120b",
+      "id": "1887309a-bf59-42f5-9e63-e9d69ffc64b5",
       "comment": "",
       "command": "select",
       "target": "css=.col-span-2 > #day",
       "targets": [],
       "value": "label=lightblue"
     }, {
-      "id": "9e18ca14-f00d-490e-8261-b5f43ceeaac6",
+      "id": "dac1c860-5dc2-4cbc-b1c7-0240d3ffd753",
       "comment": "",
       "command": "click",
       "target": "id=submit",
@@ -195,19 +188,14 @@
       ],
       "value": ""
     }, {
-      "id": "e293a666-e6e7-401d-ab7e-887478e83f36",
-      "comment": "",
-      "command": "assertAlert",
-      "target": "click to save",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "b1f3bf71-324d-4712-94c0-c4830c16cff6",
+      "id": "55d3e014-4b59-4d76-9519-c035f8220f2f",
       "comment": "",
       "command": "click",
-      "target": "css=.material-icons-outlined > svg",
+      "target": "css=.bg-lime-800",
       "targets": [
-        ["css=.material-icons-outlined > svg", "css:finder"]
+        ["css=.bg-lime-800", "css:finder"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Yes')]", "xpath:innerText"]
       ],
       "value": ""
     }, {
@@ -221,7 +209,7 @@
       "id": "7f397359-a856-44f0-a461-0c803035efbc",
       "comment": "",
       "command": "assertText",
-      "target": "css=.text-xl",
+      "target": "//*[@id=\"root\"]/div/div/div/div[11]/div/div/div/h1",
       "targets": [
         ["css=.text-xl", "css:finder"],
         ["xpath=//div[@id='root']/div/div/div/div[10]/div/div/div/h1", "xpath:idRelative"],
@@ -233,7 +221,7 @@
       "id": "2c3508d9-3ba8-4b83-8f6f-fe2ebbe5dd59",
       "comment": "",
       "command": "assertText",
-      "target": "css=.pl-1",
+      "target": "//*[@id=\"root\"]/div/div/div/div[11]/div/div/div/p",
       "targets": [
         ["css=.pl-1", "css:finder"],
         ["xpath=//div[@id='root']/div/div/div/div[10]/div/div/div/p", "xpath:idRelative"],
