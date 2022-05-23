@@ -1,6 +1,30 @@
-import React from 'react'
+import React, { useState,useEffect } from 'react'
 
-const Slot = ({houreslot, slotid, rowidx}) => {
+const Slot = ({houreslot, slotid, rowidx, db}) => {
+    const [slots,setSlots] = useState('')
+    let id = rowidx.toString() + slotid.toString()
+
+    
+    db.open().catch((err) => {
+        console.log(err.stack || err)
+    })
+    // get all post at all time 
+    useEffect(() => {
+        const jsdomAlert = window.alert;  // remember the jsdom alert
+        window.alert = () => {};  // provide an empty implementation for window.alert
+        //get all posts from the database
+        const getSlot = async() => { // delete the try catch block if it doesnt work
+            try {
+            let slot = await db.slots.where("id").equalsIgnoreCase(id).toArray();
+            setSlots(slot);
+            } catch(error) {
+                alert(error);
+            }
+        }
+        getSlot();
+  
+    }, [])
+
   const timeLabel = (id) => {
       if (id === 1) {
           return '08:00 - 09:00'
@@ -67,9 +91,31 @@ const Slot = ({houreslot, slotid, rowidx}) => {
   }
   return ''
 }
+
+
+let postData
+if(slots.length > 0) {
+      
+    postData = <div className="h-20">
+                {
+                    slots.map(slot => {
+                        
+                            return <div className={`${(slot.selectedCategory !== 'bg-amber-200' && slot.selectedCategory !== 'bg-cyan-200' ) ? 'text-white ' : '' } ${slot.selectedCategory} italic h-full rounded-md`}  key={slot.id}>
+                                    <h1 data-testid={`${slot.id}`} className='text-center text-xl font-semibold '>{slot.title}</h1>
+                                    <p className='pl-1 '>{slot.location}</p> 
+                                    </div>  
+                        
+                     
+                              
+                    })
+                }
+               </div>
+}
+
+
     return (
     <div className={`${(rowidx > 0) ? 'border border-gray-300 h-20 ' : 'h-5'}`}>
-        {(rowidx === 1 && slotid ===1) && <p className='text-sm font-bold '>hey wir haben es geschafft</p> }
+        {postData}
         {rowidx === 0 && <p className='text-sm font-bold text-center'>{day(slotid)}</p> }
        {slotid === 0 && <p className='text-sm pt-5 my-1 text-center '>{timeLabel(rowidx)}</p> }
        {rowidx > 0 && <p className='text-sm p-1 my-1 text-center'>{houreslot}</p> }
