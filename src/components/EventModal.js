@@ -128,8 +128,7 @@ const EventModal = ({openform,setopenform,layoutdisplay,layoutdisplay2,setlayout
         e.preventDefault()
         setConfirmDialog({
             isOpen: true,
-            title: 'Are you sure to delete this record?',
-            subTitle: "You can't undo this operation",
+            title: 'Do you want to add this Appointment?',
             onConfirm: () => { onSave(e)}
         })
        
