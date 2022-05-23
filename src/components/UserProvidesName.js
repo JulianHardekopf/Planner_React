@@ -34,7 +34,7 @@ const UserProvidesName = (db) => {
                             </form>
                             <button className="submitButton" onClick={(e) => {
                                 handleSubmit(e)
-                                onClose()
+                                onClose();
                             }}>Confirm
                             </button>
                         </div>
@@ -45,9 +45,10 @@ const UserProvidesName = (db) => {
         const handleSubmit = (event) => {
             event.preventDefault();
             db.user.update(1, {name: name})
-            SuccessMessage(name)
+            SuccessMessage()
         }
     }
+
     return provider();
 }
 export default UserProvidesName
