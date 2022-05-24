@@ -14,7 +14,7 @@ function App() {
   
   const db = new Dexie("ReactDexie");
   //create the database store
-  db.version(1).stores({
+  db.version(2).stores({
       slots: "id, title, location, Category, dayid, slotid",
       user: "id, name"
   })
