@@ -9,6 +9,8 @@ const UserProvidesName = (db) => {
     let user;
 
     async function provider() {
+        try {
+        
         if (await db.user.get(1) === undefined) {
             await db.user.put({
                 id: 1,
@@ -47,6 +49,9 @@ const UserProvidesName = (db) => {
             db.user.update(1, {name: name})
             SuccessMessage()
         }
+    } catch(error) {
+        
+    }
     }
 
     return provider();

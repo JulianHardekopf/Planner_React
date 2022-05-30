@@ -4,7 +4,8 @@ import CalenderHeader from './components/CalenderHeader';
 import LayoutC from './components/LayoutC';
 
 import React, { useState } from 'react'
-import EventModal from './components/EventModal';
+
+import EventModal from './components/Eventmodal/EventModal';
 import Dexie from "dexie"
 import UserProvidesName from "./components/UserProvidesName";
 

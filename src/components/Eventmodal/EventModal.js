@@ -1,16 +1,14 @@
 import React from 'react'
 import {AiOutlineCloseCircle} from 'react-icons/ai'
-import  { useState, useEffect } from 'react'
-import { confirmAlert } from 'react-confirm-alert'; // Import
+import  { useState } from 'react'
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
-import fakeIndexedDB from 'fake-indexeddb/build/fakeIndexedDB';
-import { wait } from '@testing-library/user-event/dist/utils';
-import { Notifications } from './Notifications';
-import ConfirmDialog from './ConfirmDialog';
+import { Notifications } from '../Notifications';
+import ConfirmDialog from '../ConfirmDialog';
 
 
 
-const EventModal = ({openform,setopenform,layoutdisplay,layoutdisplay2,setlayoutdisplay2,db}) => {
+
+const EventModal = ({openform,setopenform,layoutdisplay2,setlayoutdisplay2,db}) => {
     
     db.open().catch((err) => {
         console.log(err.stack || err)
@@ -18,38 +16,17 @@ const EventModal = ({openform,setopenform,layoutdisplay,layoutdisplay2,setlayout
     
     //set the state and property
     const [notify, setNotify] = useState({isOpen: false, message: "", type:""})
-    const [SaveAppointment, setSaveAppointment] = useState(false)
     let saveFlag = false
     const [title, setTitle] = useState('')
     const [location, setLocation] = useState('')
     const [selectedDay, setSelectedDay] = useState('')
     const [selectedSlot, setSelectedSlot] = useState('')
     const [selectedCategory, setSelectedCategory] = useState('bg-indigo-500')
-    const [slots, setSlots] = useState("");
+    //const [slots, setSlots] = useState("");
     const [confirmDialog, setConfirmDialog] = useState({ isOpen: false, title: '', subTitle: '' })
 
     
-    const SuccessMessage = () =>  {
-        
-        confirmAlert({
-            title: 'Confirm to submit',
-            message: 'Task was successful.',
-            buttons: [
-                {
-                    label: 'Confirm',
-                    onClick: () => saveFlag = true
-                    
-                }, 
-                {
-                    label: 'No',
-                    //onClick: () => setSaveAppointment(false)
-                    onClick: () => saveFlag = false
-                    
     
-                }
-            ]
-        });
-    }
    
     
 
@@ -80,19 +57,27 @@ const EventModal = ({openform,setopenform,layoutdisplay,layoutdisplay2,setlayout
             db.slots.update(checkid, {}).then(function (updated) {
                 if (updated)
                     db.slots.update(checkid, slotWithoutKey).then(async() => {
+                        try {
+                        } catch(error) {
+                            
+                        }
                         //retrieve all posts inside the database
-                        let allSlots = await db.slots.toArray();
+                        //let allSlots = await db.slots.toArray();
                         //set the posts
-                        setSlots(allSlots);
+                        //setSlots(allSlots);
                         
                     });
                     
                 else
                 db.slots.add(slot).then(async() => {
+                    try {
+                    } catch(error) {
+                        
+                    }
                     //retrieve all posts inside the database
-                    let allSlots = await db.slots.toArray();
+                    //let allSlots = await db.slots.toArray();
                     //set the posts
-                    setSlots(allSlots);
+                    //setSlots(allSlots);
                     
                 });
                 
@@ -124,7 +109,7 @@ const EventModal = ({openform,setopenform,layoutdisplay,layoutdisplay2,setlayout
     
     }
 
-    const test = (e) => {
+    const createDialog = (e) => {
         e.preventDefault()
         setConfirmDialog({
             isOpen: true,
@@ -148,8 +133,10 @@ const EventModal = ({openform,setopenform,layoutdisplay,layoutdisplay2,setlayout
                    if(saveFlag) {
                     saveSlot(title,location,selectedCategory,selectedDay,selectedSlot,event)
                    }
+              
+                   return slot;
       
-                   return slot;                  
+                                    
 
                  
                     
@@ -222,7 +209,7 @@ const EventModal = ({openform,setopenform,layoutdisplay,layoutdisplay2,setlayout
                         </select>
                     </div>
                     <div></div>
-                    <button data-testid="taskSubmitButton" id='submit' onClick={(e) => test(e)} className='rounded-full mb-4 h-12 w-full outline-4 content-center bg-slate-900 text-slate-50	  hover:bg-gray-300 transition-all duration-500 hover:text-black'>Submit</button>
+                    <button data-testid="taskSubmitButton" id='submit' onClick={(e) => createDialog(e)} className='rounded-full mb-4 h-12 w-full outline-4 content-center bg-slate-900 text-slate-50	  hover:bg-gray-300 transition-all duration-500 hover:text-black'>Submit</button>
 
 
                 </div>
