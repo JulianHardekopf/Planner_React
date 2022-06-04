@@ -179,12 +179,10 @@ if(slots.length > 0) {
                     slots.map(slot => {
                         
                             return <div className={`${(slot.selectedCategory !== 'bg-amber-200' && slot.selectedCategory !== 'bg-cyan-200' ) ? 'text-white ' : '' } ${slot.selectedCategory} italic h-full rounded-md`}  key={slot.id}>
-                                    <h1 data-testid={`${slot.id}`} className='text-center text-xl font-semibold '>{slot.title}</h1>
-                                    <p className='pl-1 '>{slot.location}</p> 
-                                    </div>  
-                        
-                     
-                              
+                            <h1 data-testid={`${slot.id}`} className='text-center text-xl font-semibold '>{slot.title}</h1>
+                            <p className='pl-1 '>{slot.location}</p> 
+                            {Dropdown(db, slot.id)}  </div>
+
                     })
                 }
                </div>
