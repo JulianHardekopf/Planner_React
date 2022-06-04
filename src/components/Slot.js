@@ -2,6 +2,17 @@ import React, { useState,useEffect,Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 
+function deleteFromDB(db, id) {
+    db.open().catch((err) => {
+        console.log(err.stack || err)
+    })
+    try{
+        db.slots.where("id").equalsIgnoreCase(id).delete();
+    }catch(error) {
+        console.log(error);
+    }
+}
+
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
   }
