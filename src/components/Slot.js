@@ -11,6 +11,9 @@ function deleteFromDB(db, id) {
   })
   try {
     db.slots.where("id").equalsIgnoreCase(id).delete();
+    
+    window.location.reload(true);
+      
   } catch (error) {
     console.log(error);
   }

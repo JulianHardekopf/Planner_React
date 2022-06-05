@@ -5,9 +5,6 @@ import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import { Notifications } from '../Notifications';
 import ConfirmDialog from '../ConfirmDialog';
 
-
-
-
 const EventModal = ({openform,setopenform,layoutdisplay2,setlayoutdisplay2,db}) => {
     
     db.open().catch((err) => {
@@ -24,12 +21,6 @@ const EventModal = ({openform,setopenform,layoutdisplay2,setlayoutdisplay2,db}) 
     const [selectedCategory, setSelectedCategory] = useState('bg-indigo-500')
     //const [slots, setSlots] = useState("");
     const [confirmDialog, setConfirmDialog] = useState({ isOpen: false, title: '', subTitle: '' })
-
-    
-    
-   
-    
-
 
     //submit 
     const saveSlot = (title,location,selectedCategory,selectedDay,selectedSlot,event) => {
@@ -133,12 +124,10 @@ const EventModal = ({openform,setopenform,layoutdisplay2,setlayoutdisplay2,db}) 
                    if(saveFlag) {
                     saveSlot(title,location,selectedCategory,selectedDay,selectedSlot,event)
                    }
-              
+                   setTimeout(() => {
+                    window.location.reload(true);
+                  }, 1000);
                    return slot;
-      
-                                    
-
-                 
                     
                } 
            })
