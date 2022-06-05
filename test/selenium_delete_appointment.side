@@ -240,6 +240,13 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "6d869b89-dcc5-47eb-8479-e38736df80fc",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=/html/body/div[2]/div/div/div/button",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "ad69f82e-869b-4147-95c9-2536b8149235",
       "comment": "",
       "command": "executeScript",
